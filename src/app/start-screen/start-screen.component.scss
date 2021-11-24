@@ -1,0 +1,122 @@
+.wrapper{
+  width: 100%;
+  height: 100vh;
+  .currencies{
+    .nav{
+      margin: 10px;
+      width: 120px;
+      height: 30px;
+      border: 2px #ba4343 solid;
+      background-color: #BCEBDD;
+      border-radius: 10px;
+      font-size: 20px;
+      &:hover{
+        transform: scale(1.05,1.05);
+        cursor: pointer;
+      }
+      &:active{
+        transform: scale(0.95,0.95);
+      }
+    }
+    table {
+      font-family: "Arial", sans-serif;
+      font-size: 18px;
+      border-radius: 10px;
+      border-spacing: 0;
+      text-align: center;
+      width: 90%;
+      table-layout: fixed;
+      margin: auto;
+      padding-bottom: 10px;
+      caption{
+        margin-bottom: 10px;
+        color: white;
+        text-shadow: 0 0 2px black;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      tr {
+        height: 30px;
+        &:nth-of-type(2) {
+          td:last-child {
+            border-top-right-radius: 10px;
+            }
+        }
+
+        &:last-child {
+          td {
+            &:first-child {
+              border-radius: 0 0 0 10px;
+            }
+            &:last-child {
+              border-radius: 0 0 10px 0;
+            }
+          }
+        }
+
+        td {
+          &:last-child {
+            border-right: none;
+
+          }
+          width: 100%;
+          border-style: solid;
+          border-width: 0 1px 1px 0;
+          border-color: white;
+          padding: 10px 20px;
+          background: #F8E391;
+          &:first-child {
+            text-align: left;
+          }
+          button{
+            width: 100px;
+            height: 25px;
+            border: 2px #ba4343 solid;
+            background-color: #F8E391;
+            border-radius: 15px;
+            display: none;
+            box-shadow: 1px 1px 2px gray;
+            &:hover{
+              cursor: pointer;
+              transform: scale(1.05,1.05);
+            }
+            &:active{
+              transform: scale(0.95,0.95);
+              box-shadow: none;
+            }
+          }
+        }
+        th {
+          background: #BCEBDD;
+          color: white;
+          text-shadow: 0 0 2px black;
+          padding: 10px 20px;
+          border-style: solid;
+          border-width: 0 1px 1px 0;
+          border-color: white;
+          &:first-child {
+            text-align: left;
+            border-top-left-radius: 10px;
+          }
+          &:last-child {
+            background-color: unset;
+            border-right: none;
+          }
+          &:nth-child(3){
+            border-top-right-radius: 10px;
+          }
+        }
+        &:hover{
+          color: #ba4343;
+          td{
+            background-color: #BCEBDD;
+            font-size: 20px;
+            button{
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+}

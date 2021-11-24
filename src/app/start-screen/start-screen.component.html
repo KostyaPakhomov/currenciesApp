@@ -1,0 +1,28 @@
+<div class="wrapper" [ngSwitch]="displayBlock">
+  <div class="currencies" *ngSwitchCase="'currencies'">
+    <button class="nav" (click)="reloadSession()">Обновить</button>
+    <button class="nav" (click)="goToSettings()">Настройки</button>
+    <table>
+      <caption>Таблица курсов иностранных валют на белорусские рубли</caption>
+      <tr>
+        <th>Валюта</th>
+        <th>Курс</th>
+        <th>Дата</th>
+        <th style="width: 120px;"></th>
+      </tr>
+      <tr class="currenciesInfo" *ngFor="let currency of currencies">
+        <td>{{currency.Cur_Scale}} {{currency.Cur_Abbreviation}}</td>
+        <td>{{currency.Cur_OfficialRate}}</td>
+        <td>{{currency.Date | date: 'dd.MM.yyyy'}}</td>
+        <td style="width: 120px;"><button [cdkCopyToClipboard]="currency.Cur_Scale + ' ' + currency.Cur_Abbreviation + ', ' + currency.Cur_OfficialRate + ', ' + (currency.Date | date: 'dd.MM.yyyy')">Копировать</button></td>
+      </tr>
+    </table>
+  </div>
+  <div *ngSwitchCase="'errorInfo'">
+    {{errorText}}
+    <button (click)="reloadSession()">Обновить</button>
+  </div>
+  <div *ngSwitchCase="'wait'">
+    Идёт запрос на сервер
+  </div>
+</div>

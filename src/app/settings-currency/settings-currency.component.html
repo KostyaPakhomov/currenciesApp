@@ -1,0 +1,47 @@
+<div class="wrapper" [ngSwitch]="displayBlock">
+  <div class="settings" *ngSwitchCase="'settings'">
+    <div class="buttons">
+      <button class="nav" (click)="goToCurrencies()">Назад</button>
+      <button *ngIf="checkAdd || checkDelete || selectedSort !== ''" class="nav" (click)="save()">Сохранить</button>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Добавить валюту</mat-label>
+        <mat-select [(ngModel)]="chosenCurrencies" [formControl]="currenciesAdd" multiple>
+          <mat-option *ngFor="let currency of remainingCurrency" [value]="currency">{{currency.Cur_Abbreviation}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="chosenCurrencies.length !== 0">
+        <label for="add">Подтвердите действие</label>
+        <input id="add" type="checkbox" (change)="checkAdd = !checkAdd">
+      </div>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Удалить валюту</mat-label>
+        <mat-select [(ngModel)]="deletedCurrencies" [formControl]="currenciesDelete" multiple>
+          <mat-option *ngFor="let currency of availableCurrencies" [value]="currency">{{currency.Cur_Abbreviation}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="deletedCurrencies.length !== 0">
+        <label for="delete">Подтвердите действие</label>
+        <input id="delete" type="checkbox" (change)="checkDelete = !checkDelete">
+      </div>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Выберите сортировку</mat-label>
+        <mat-select [(ngModel)]="selectedSort">
+          <mat-option value="">Не сортировать</mat-option>
+          <mat-option value="rate">По курсу</mat-option>
+          <mat-option value="name">По названию валюты</mat-option>
+          <mat-option value="numberUnits">По количеству валютных единиц</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'wait'">
+    Ожидайте
+  </div>
+</div>

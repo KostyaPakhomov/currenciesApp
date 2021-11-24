@@ -1,0 +1,39 @@
+.wrapper{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .settings{
+    width: 320px;
+    border: 3px #ba4343 solid;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(248,227,145,.9);
+    .buttons{
+      .nav{
+        margin: 10px;
+        width: 120px;
+        height: 30px;
+        border: 2px #ba4343 solid;
+        background-color: #BCEBDD;
+        border-radius: 10px;
+        font-size: 20px;
+        &:hover{
+          transform: scale(1.05,1.05);
+          cursor: pointer;
+        }
+        &:active{
+          transform: scale(0.95,0.95);
+        }
+      }
+    }
+    div{
+      margin: 10px 0;
+    }
+  }
+}
